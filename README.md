@@ -1,5 +1,4 @@
-# miscPythonStuff
-<p>miscellaneous python projects</p>
+<h1>miscellaneous python projects</h1>
 <ol>
 <li>annuityCalc.py represents a concept that calculates the cost of an annuity loan.</li>
 <li>algorithmVIN.py represents a concept that calculates the check digit of a vehicle identification number according to USA/Federal 49 CFR 565</li>
