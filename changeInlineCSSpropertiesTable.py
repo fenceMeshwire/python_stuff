@@ -18,7 +18,7 @@
 #     </tr>
 # </table>
 # ...
-# CONCLUSION: It is strongly recommended to reference an external CSS stylesheet.
+# CONCLUSION: It is strongly recommended to reference to an external CSS stylesheet.
 
 import os
 from pathlib import Path
