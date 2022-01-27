@@ -18,7 +18,7 @@
 #     </tr>
 # </table>
 # ...
-# CONCLUSION: It is strongly recommended to reference to an external CSS style sheet.
+# CONCLUSION: It is strongly recommended to reference an external CSS stylesheet.
 
 import os
 from pathlib import Path
@@ -29,7 +29,7 @@ class DirMgmt:
         pass
 
     def checkDir(self):
-        dirName = '...'
+        dirName = '...' # Current working directory goes here
         os.chdir(dirName)
         return Path.cwd()
 
@@ -38,7 +38,6 @@ oCreateDirectories.checkDir()
 
 lines = []
 strippedLines = []
-newLines = []
 
 tdArgument = ''
 tdStyle = 'style="padding:0px;margin:0px;border-collapse:collapse;box-sizing:content-box;border-spacing:0px;vertical-align:middle;line-height:0px;'
@@ -57,47 +56,30 @@ output_file = 'newHTML.html'
 if os.path.exists(os.path.join(Path.cwd(), output_file)):
     os.remove(os.path.join(Path.cwd(), output_file))
 
+def addCSSproperties():
+    widthStart = line.find('width')
+    heightStart = line.find('height')
+    findAltStart = line.find('alt')
+    widthEnd = heightStart - 1
+    heightEnd = findAltStart - 1
+    widthArgument = line[widthStart:widthEnd]
+    widthArgument = widthArgument.replace('"', '')
+    widthArgument = widthArgument.replace('=', ':')
+    heightArgument = line[heightStart:heightEnd]
+    heightArgument = heightArgument.replace('"', '')
+    heightArgument = heightArgument.replace('=', ':')
+    tdArgumentLeft = line.find('><img') - 1
+    tdNewArgument = line[0:tdArgumentLeft + 1] + ' ' +  tdStyle + widthArgument + ';' + heightArgument + '"' + line[tdArgumentLeft+1:]
+    return tdNewArgument
+
 with open(output_file, 'wt') as fout:
     fout.write('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<title>Document</title>\n</head>\n<body>\n')
     for line in strippedLines:
         if 'rowspan' in line or 'colspan' in line:
-            widthStart = line.find('width')
-            heightStart = line.find('height')
-            findAltStart = line.find('alt')
-            widthEnd = heightStart - 1
-            heightEnd = findAltStart - 1
-            widthArgument = line[widthStart:widthEnd]
-            widthArgument = widthArgument.replace('"', '')
-            widthArgument = widthArgument.replace('=', ':')
-            heightArgument = line[heightStart:heightEnd]
-            heightArgument = heightArgument.replace('"', '')
-            heightArgument = heightArgument.replace('=', ':')
-            tdArgument = len(line)
-            tdArgumentLeft = line.find('><img') - 1
-            tdArgumentRight = tdArgument - tdArgumentLeft
-            tdNewArgument = line[0:tdArgumentLeft + 1] + ' ' +  tdStyle + widthArgument + ';' + heightArgument + '"' + line[tdArgumentLeft+1:]
-            newLines.append(tdNewArgument)
-            fout.write(tdNewArgument + '\n')
+            fout.write(addCSSproperties() + '\n')
         elif '<td>' in line and not 'rowspan' in line or '<td>' in line and not 'colspan' in line:
-            widthStart = line.find('width')
-            heightStart = line.find('height')
-            findAltStart = line.find('alt')
-            widthEnd = heightStart - 1
-            heightEnd = findAltStart - 1
-            widthArgument = line[widthStart:widthEnd]
-            widthArgument = widthArgument.replace('"', '')
-            widthArgument = widthArgument.replace('=', ':')
-            heightArgument = line[heightStart:heightEnd]
-            heightArgument = heightArgument.replace('"', '')
-            heightArgument = heightArgument.replace('=', ':')
-            tdArgument = len(line)
-            tdArgumentLeft = line.find('><img') - 1
-            tdArgumentRight = tdArgument - tdArgumentLeft
-            tdNewArgument = line[0:tdArgumentLeft + 1] + ' ' +  tdStyle + widthArgument + ';' + heightArgument + '"' + line[tdArgumentLeft:]
-            newLines.append(tdNewArgument)
-            fout.write(tdNewArgument + '\n')
+            fout.write(addCSSproperties() + '\n')
         else:
-            newLines.append(line)
             fout.write(line + '\n')
     fout.write('</body>\n</html>')
 fout.close()
