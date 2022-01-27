@@ -2,7 +2,7 @@
 
 # Python 3.9.5
 
-# rotatingSpinner.py
+# rotateSpinner.py
 
 # Purpose: Create a moving spinner with the characters = ['|', '/', '-', '\\'] 
 
