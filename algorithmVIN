@@ -9,8 +9,9 @@
 # (1-3) |         |  |
 #       VDS (4-8) |  |
 #                 |  |
-#       check-digit  | model year (10th digit)
-#                    VIS (9-17)
+#       check-digit  | 
+#                    model year (10th digit)
+#                 VIS (9-17)
 
 class VINCheck():
   def __init__(self, vin):
