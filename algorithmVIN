@@ -35,8 +35,10 @@ class VINCheck():
       "0.636":7, "0.727":8, "0.818":9, "0.909":"X"}
 
   def checkVIN(self, vin):
+    
     position = 0
     add = 0
+    
     for digit in vin:
       value = self.assigned_values.get(digit)
       position += 1
