@@ -13,6 +13,8 @@
 #                 |  model year (10)
 #                 VIS (9-17)
 
+# algorithmVIN.py
+
 class VINCheck():
   def __init__(self, vin):
     self.vin = vin
@@ -49,18 +51,21 @@ class VINCheck():
     return_result = self.check_digit.get(fraction)
     return return_result
 
-vin = "ABC12JK080BL41394"
-nineth_digit = vin[8]
+# Call the main function if algorithmVIN.py is run instead of the module:
+if __name__ == '__main__': 
+  
+  vin = "ABC12JK080BL41394"
+  nineth_digit = vin[8]
 
-result = VINCheck(vin)
-data = result.checkVIN()
+  result = VINCheck(vin)
+  data = result.checkVIN()
 
-if str(data) == str(nineth_digit):
-  print("The check digit is correct.")
-  print("WMI: " + vin[0:3])
-  print("VDS: " + vin[3:7] + " " + vin [7:8])
-  print("VIS: " + vin[8:])
-else:
-  print("The VIN is not correct.\nDeviation:")
-  print("Nineth digit: \t\t" + str(nineth_digit))
-  print("Calculated check digit: " + str(data))
+  if str(data) == str(nineth_digit):
+    print("The check digit is correct.")
+    print("WMI: " + vin[0:3])
+    print("VDS: " + vin[3:7] + " " + vin [7:8])
+    print("VIS: " + vin[8:])
+  else:
+    print("The VIN is not correct.\nDeviation:")
+    print("Nineth digit: \t\t" + str(nineth_digit))
+    print("Calculated check digit: " + str(data))
