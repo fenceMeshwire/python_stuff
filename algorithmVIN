@@ -16,8 +16,9 @@
 # algorithmVIN.py
 
 class VINCheck():
-  def __init__(self, vin):
-    self.vin = vin
+  
+  def __init__(self):
+
     self.assigned_values = {"A":1, "B":2, "C":3, "D":4, "E":5, "F":6, "G":7, "H":8,"J":1, "K":2, \
       "L":3, "M":4, "N":5, "P":7, "R":9, "S":2, "T":3, "U":4, "V":5, "W":6, "X":7, "Y":8, "Z":9, \
         "1":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "0":0}
@@ -33,10 +34,10 @@ class VINCheck():
     self.check_digit = {"0.000":0, "0.091":1, "0.182":2, "0.273":3, "0.364":4, "0.455":5, "0.545":6, \
       "0.636":7, "0.727":8, "0.818":9, "0.909":"X"}
 
-  def checkVIN(self):
+  def checkVIN(self, vin):
     position = 0
     add = 0
-    for digit in self.vin:
+    for digit in vin:
       value = self.assigned_values.get(digit)
       position += 1
       if position == 9:
@@ -57,8 +58,8 @@ if __name__ == '__main__':
   vin = "ABC12JK080BL41394"
   nineth_digit = vin[8]
 
-  result = VINCheck(vin)
-  data = result.checkVIN()
+  result = VINCheck()
+  data = result.checkVIN(vin)
 
   if str(data) == str(nineth_digit):
     print("The check digit is correct.")
