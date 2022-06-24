@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# annuityCalc.py
+# calc_annuity.py
 
 # Purpose: Calculate debt, annuity, amortization and interest according to mathematical formulas.
 
