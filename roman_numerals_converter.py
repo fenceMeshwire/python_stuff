@@ -5,7 +5,6 @@
 # roman_numerals_converter.py
 
 def convert_roman(decimal_number):
-    
     roman_numeral:str = ''
     roman_numerals_millions = {3000000:u'M\u0305M\u0305M\u0305', 2000000:u'M\u0305M\u0305', 1000000:u'M\u0305'}
     roman_numerals_hundred_thousands = {900000:u'C\u0305M\u0305', 800000:u'D\u0305C\u0305C\u0305C\u0305', 
