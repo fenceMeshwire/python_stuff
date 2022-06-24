@@ -2,7 +2,7 @@
 
 # Python 3.9.5
 
-# roman_numbers_converter.py
+# roman_numerals_converter.py
 
 def convert_roman(decimal_number):
     
