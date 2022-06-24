@@ -9,5 +9,5 @@
 <li>find_substring_in_string.py represents a concept to find a given substring within a string and returns the position of the first character of the substring within the string.</li>
 <li>rotate_spinner.py represents a concept to show status activity in the shape of a rotating spinner.</li>
 <li>story_points.py represents a concept to analyze the relationship between a series of numbers.</li>
-<li>roman_numbers.py represents a concept to convert decimal numbers to Roman numerals.</li>
+<li>roman_numbers_converter.py represents a concept to convert decimal numbers to Roman numerals.</li>
 </ol>
