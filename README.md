@@ -9,5 +9,5 @@
 <li>rotate_spinner.py represents a concept to show status activity in the shape of a rotating spinner.</li>
 <li>story_points.py represents a concept to analyze the relationship between a series of numbers.</li>
 <li>roman_numbers_converter.py represents a concept to convert decimal numbers to Roman numerals.</li>
-<li>translate_ascii_ord_chr.py uses the ord() and chr() methods to convert the symbol to the corresponding ASCII number and vice versa.</li>
+<li>translate_ascii_ord_chr.py uses the ord() and chr() functions to convert the symbol to the corresponding ASCII number and vice versa.</li>
 </ol>
