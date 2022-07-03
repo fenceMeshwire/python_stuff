@@ -11,6 +11,7 @@ def get_symbol_number(symbol):
     return ord(symbol)
 
 if __name__ == '__main__':
+    # ascii = [i for i in range(33, 128, 1)]
     # Returns the symbol to the corresponding unicode number: 36 -> '$'
     symbol = get_symbol(36)
     print(symbol)
